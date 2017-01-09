@@ -1,0 +1,17 @@
+from django.db import models
+class user_profile(models.Model):
+	f_name=models.CharField(max_length=20)
+	l_name=models.CharField(max_length=20)
+	address=models.CharField(max_length=200)
+	city=models.CharField(max_length=20)
+	state=models.CharField(max_length=12)
+	pin=models.CharField(max_length=10)
+	country=models.CharField(max_length=19)
+	college=models.CharField(max_length=30)
+	biography=models.CharField(max_length=500)
+	skills=models.CharField(max_length=10)
+	tenthth_marks=models.CharField(max_length=5)
+	twelth_marks=models.CharField(max_length=5)
+	course=models.CharField(max_length=20)
+	image=models.FileField(upload_to="images")
+	pid=models.CharField(max_length=40,primary_key=True)

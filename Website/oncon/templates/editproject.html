@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Project Name</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />        
+        <script src="/static/js/jquery-2.1.4.js" type="text/javascript"></script>
+        <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+        <link rel="shortcut icon" href="">
+    <script>
+            $(document).ready(function() {                                
+                    $("#add_syn").click(function(e){                                        
+                   e.preventDefault();
+                });
+                $("#completed").click(function(e){                                        
+                   e.preventDefault();
+                });
+            });
+    </script>    
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse" >
+            <div class="container-fluid">
+                <div class="navbar-header">                    
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    
+                    <a class="navbar-brand" href="/">Collegize</a>                       
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li ><a href="/">Home</a></li>
+                    <li ><a href="/wall_of_fame/main_page/">Wall of Fame</a></li>
+                    <li><a href="/question/main_page">Post a Question</a></li>                     
+                    <li><a href="/project/main_page/">Start a Project</a></li>
+                    <li><a href="/workshop/main_page/">Start a workshop</a></li>                                        
+                </ul>                
+                <ul class="nav navbar-nav navbar-right">
+                <li class="nav-un"><a href="profile.html" ><h4>{{name}}</h4></a></li>                                                                
+                <li class="dropdown ">
+                        <a class="dropdown-toggle nav-un" data-toggle="dropdown" href="#">
+                            <img src="/media/{{data3.image}}" class="img-circle " alt="name of user" width="45" height="45">
+                            </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/user_profile/main_page">Settings</a></li>
+                          <li><a href="/login/logout/">Log Out</a></li>                          
+                        </ul>
+                </li>
+                </ul>                    
+                </div>                                                                                                        
+            </div>
+        </nav>
+        
+        <div class="container">
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default ">
+                        <div class="panel-body points">Skill Points : {{data3.skill}}</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default ">
+                        <div class="panel-body points">Karma Points : {{data3.karma}}</div>
+                    </div>
+                </div>
+            </div>    
+            <div>
+                <form role="form" id="desc" method="post" action="/project/start_project/" enctype="multipart/form-data">
+                        {% csrf_token %}
+                <div class="row">
+                <div class="col-md-3" >
+                    
+                    <img src="/media/{{data.images}}" alt="profile pic" class=" center-block" 
+                         width="200" height="200">
+                    <div class="carousel-caption">
+                        <button type="button" class="btn bottom-right" title="Edit" data-toggle="modal" data-target="#myModal4">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </div>
+                    <div class="modal fade" id="myModal4" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title text-center">Select the a profile picture from your system</h4>
+                            </div>
+                            <div class="modal-body">                   
+                                   <input type="file" name="image"></input>
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                </div>
+                        
+                <div class="col-md-9">
+                    
+                    <div class="well ">
+                    Title of the Project
+                        <textarea name="ptitle" class="form-control desc" >{{data.ptitle}}</textarea>
+                        <div class="alert alert-info">
+                            <p><strong>Members Required: </strong>{{data.members}}</p>
+                            <p><strong>Technology: </strong><input type="text" value="{{data.technology}}" class="form-control" name="technology"/></p>
+                           <p><strong>Date: </strong>{{data.date}}</p>
+                           <p><strong>Status: </strong>{{data.status}}</p>
+                           <p> <strong>Ratings: </strong>{{data.rating}}</p>
+                        </div>                                                
+                    </div>                                             
+                </div>                        
+                </div>
+                {% if data.synopsis == 'nosyn'  %}
+                <div class="jumbotron">
+                    <h4>Provide Synopsis related to the project for others to download</h4>
+                    <button id="add_syn" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Upload Synopsis</button>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title text-center">Select a PDF, DOC or TXT file from your system</h4>
+                            </div>
+                            <div class="modal-body">            
+
+                                   <input type="file" name="synfile"></input>
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% else %}
+                    <div class="jumbotron">
+                    <div class="alert alert-info">
+                    <p><strong>Download Synopses:</strong> <a href="/media/{{data.synopsis}}" download>{{data.synopfile}}</a></p>
+                    </div></div>
+                 {% endif %}
+            <div class="jumbotron desc">
+                Project Description : <textarea name="detail" class="form-control desc" rows="5" cols="112">{{data.detail}}</textarea>
+                
+                {% if data.url == 'nourl' %}
+                <br><h4>Explain the status of your project</h4>
+                <h5>Upload a video or a web-link if the project has been completed</h5>
+                <div class="form-group ">                            
+                    <input type="text" placeholder="http://" name="url" class="form-control" id="link" >
+                </div>
+                <strong >or / and</strong><br>
+                {% else %}
+                <div class="alert alert-info">
+               <p><strong>PROJECT URL: </strong><a href="{{data.url}}">{{data.url}}</a></p>
+               </div>
+                {% endif %}
+                {% if data.video == 'novid' %}
+                <div class="desc">
+                <p>You can upload video if required when the project is complete</p>
+                    <button id="completed" class="btn btn-info" data-toggle="modal" data-target="#myModal1">Upload demo</button>
+                </div>
+                    <div class="modal fade" id="myModal1" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title text-center">You can upload video if required when the project is complete</h4>
+                                </div>
+                                <div class="modal-body">            
+                                    
+                                    <input type="file" name="video"></input>
+                                    
+                                </div>
+
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+                    {% else %}
+                    <div class="row ">
+            
+                <div class="col-md-3 videos">
+                    <a href="#myModal" role="button" data-toggle="modal">
+                        <video class="center-block" width="320" height="240" controls>
+                          <source src="/media/{{data.video}}" type="video/mp4">            
+                               Your browser does not support the video tag.
+                                       </video></a>
+                              <label>Uploaded on :{{data.videodate}}</label></div>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">            
+            
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <video class="center-block" width="624" height="352" controls>
+                <source src="/media/{{data.video}}" type="video/mp4">            
+              Your browser does not support the video tag.
+              </video>
+          </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+        </div>
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+                    <input type="hidden" name="id" value="{{data.id}}"/>
+                    <input type="hidden" name="type" value="update"/>
+                 
+               Note -- <textarea name="brief" class="form-control desc" >{{data.note}}
+                        </textarea>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>               
+                </form>
+            </div>            
+        </div>
+        <div class="container-fluid footer">
+                
+                <p class="text-primary">
+                <a href="/AboutUs/aboutus/">About Us</a>                 
+                <small>© 2016 COLLEGIZE</small> </p>
+            </div>
+    </body>
+</html>

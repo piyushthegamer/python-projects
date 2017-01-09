@@ -1,0 +1,169 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/*  $(document).ready(function() {        
+$("#btn"+i).click(function(e){
+                    $(this).hide();
+					$("#name"+i).hide();
+                    $("#name_edit"+i).removeClass('hidden');
+                    $("#ok"+i).removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok"+k).click(function(f){
+                    $("#btn"+k).show();
+                    $("#name"+k).show();
+                    $("#name_edit"+k).addClass('hidden');
+		$("#ok"+k).addClass('hidden');		
+	})         
+    });*/
+	/* For Account*/
+	  $(document).ready(function() {        
+$("#btn2").click(function(e){
+                    $(this).hide();
+					$("#name2").hide();
+                    $("#name_edit2").removeClass('hidden');
+                    $("#ok2").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok2").click(function(f){
+                    $("#btn2").show();
+                    $("#name2").show();
+                    $("#name_edit2").addClass('hidden');
+		$("#ok2").addClass('hidden');		
+	});
+$("#btn3").click(function(e){
+                    $(this).hide();
+					$("#name3").hide();
+                    $("#name_edit3").removeClass('hidden');
+                    $("#ok3").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok3").click(function(f){
+                    $("#btn3").show();
+                    $("#name3").show();
+                    $("#name_edit3").addClass('hidden');
+		$("#ok3").addClass('hidden');		
+	});
+$("#btn4").click(function(e){
+                    $(this).hide();
+					$("#name4").hide();
+                    $("#name_edit4").removeClass('hidden');
+                    $("#ok4").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok4").click(function(f){
+                    $("#btn4").show();
+                    $("#name4").show();
+                    $("#name_edit4").addClass('hidden');
+		$("#ok4").addClass('hidden');		
+	});
+$("#btn5").click(function(e){
+                    $(this).hide();
+					$("#name5").hide();
+                    $("#name_edit5").removeClass('hidden');
+                    $("#ok5").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok5").click(function(f){
+                    $("#btn5").show();
+                    $("#name5").show();
+                    $("#name_edit5").addClass('hidden');
+		$("#ok5").addClass('hidden');		
+	});
+$("#btn6").click(function(e){
+                    $(this).hide();
+					$("#name6").hide();
+                    $("#name_edit6").removeClass('hidden');
+                    $("#ok6").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok6").click(function(f){
+                    $("#btn6").show();
+                    $("#name6").show();
+                    $("#name_edit6").addClass('hidden');
+		$("#ok6").addClass('hidden');		
+	});	
+ 
+        /*for profile*/
+		        
+$("#btn00").click(function(e){
+                    $(this).hide();
+					$("#name00").hide();
+                    $("#name_edit00").removeClass('hidden');
+                    $("#ok00").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok00").click(function(f){
+                    $("#btn00").show();
+                    $("#name00").show();
+                    $("#name_edit00").addClass('hidden');
+		$("#ok00").addClass('hidden');		
+	});
+$("#btn01").click(function(e){
+                    $(this).hide();
+					$("#name01").hide();
+                    $("#name_edit01").removeClass('hidden');
+                    $("#ok01").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok01").click(function(f){
+                    $("#btn01").show();
+                    $("#name01").show();
+                    $("#name_edit01").addClass('hidden');
+		$("#ok01").addClass('hidden');		
+	});
+$("#btn02").click(function(e){
+                    $(this).hide();
+					$("#name02").hide();
+                    $("#name_edit02").removeClass('hidden');
+                    $("#ok02").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok02").click(function(f){
+                    $("#btn02").show();
+                    $("#name02").show();
+                    $("#name_edit02").addClass('hidden');
+		$("#ok02").addClass('hidden');		
+	});
+$("#btn03").click(function(e){
+                    $(this).hide();
+					$("#name03").hide();
+                    $("#name_edit03").removeClass('hidden');
+                    $("#ok03").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok03").click(function(f){
+                    $("#btn03").show();
+                    $("#name03").show();
+                    $("#name_edit03").addClass('hidden');
+		$("#ok03").addClass('hidden');		
+	});
+$("#btn04").click(function(e){
+                    $(this).hide();
+					$("#name04").hide();
+                    $("#name_edit04").removeClass('hidden');
+                    $("#ok04").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok04").click(function(f){
+                    $("#btn04").show();
+                    $("#name04").show();
+                    $("#name_edit04").addClass('hidden');
+		$("#ok04").addClass('hidden');		
+	});
+$("#btn05").click(function(e){
+                    $(this).hide();
+					$("#name05").hide();
+                    $("#name_edit05").removeClass('hidden');
+                    $("#ok05").removeClass('hidden');
+					e.preventDefault();
+});
+        $("#ok05").click(function(f){
+                    $("#btn05").show();
+                    $("#name05").show();
+                    $("#name_edit05").addClass('hidden');
+		$("#ok05").addClass('hidden');		
+	})
+    });
